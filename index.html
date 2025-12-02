@@ -7,12 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
+        /* --- Estilos generales --- */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
             color: #00f6ff;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -37,91 +37,139 @@
 
         p {
             font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 40px;
-            line-height: 1.5;
-            text-shadow: 0 0 5px #00f6ff;
+            margin: 10px 0;
         }
 
-        .paypal-button {
-            background: linear-gradient(90deg, #0070ba, #00f6ff);
-            color: #000;
-            border: none;
-            padding: 18px 35px;
+        a {
+            color: #00f6ff;
+            text-decoration: none;
+            font-weight: bold;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        a:hover {
+            text-shadow: 0 0 10px #00f6ff, 0 0 20px #00f6ff, 0 0 30px #00f6ff;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #00f6ff, 0 0 10px #00f6ff, 0 0 15px #00f6ff; }
+            50% { text-shadow: 0 0 10px #00f6ff, 0 0 20px #00f6ff, 0 0 30px #00f6ff; }
+            100% { text-shadow: 0 0 5px #00f6ff, 0 0 10px #00f6ff, 0 0 15px #00f6ff; }
+        }
+
+        /* --- Footer flotante --- */
+        .footer-contact {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(10,10,10,0.8);
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-align: right;
+            box-shadow: 0 0 15px #00f6ff;
+        }
+
+        .footer-contact a {
+            color: #00f6ff;
+            text-decoration: none;
+            font-weight: bold;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        .footer-contact a:hover {
+            text-shadow: 0 0 10px #00f6ff, 0 0 20px #00f6ff, 0 0 30px #00f6ff;
+        }
+
+        /* --- Sección de servicios --- */
+        .servicios {
+            max-width: 700px;
+            margin: 40px 20px;
+            background-color: rgba(10,10,10,0.85);
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00f6ff;
+        }
+
+        .servicios p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Botón "Ver Servicio" */
+        .btn-servicio {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
             font-size: 1.2rem;
+            color: #0a0a0a;
+            background: #00f6ff;
             border-radius: 50px;
-            cursor: pointer;
             font-weight: bold;
             text-decoration: none;
-            box-shadow: 0 0 20px #00f6ff, 0 0 40px #0070ba inset;
-            transition: 0.3s;
+            box-shadow: 0 0 10px #00f6ff, 0 0 20px #00f6ff, 0 0 30px #00f6ff;
+            animation: glow-btn 1.5s infinite alternate;
+            transition: transform 0.3s;
         }
 
-        .paypal-button:hover {
-            background: linear-gradient(90deg, #00f6ff, #0070ba);
-            color: #fff;
-            box-shadow: 0 0 30px #00f6ff, 0 0 50px #0070ba inset;
-            transform: translateY(-5px);
+        .btn-servicio:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes glow-btn {
+            0% { box-shadow: 0 0 10px #00f6ff, 0 0 20px #00f6ff, 0 0 30px #00f6ff; }
+            50% { box-shadow: 0 0 20px #00f6ff, 0 0 30px #00f6ff, 0 0 40px #00f6ff; }
+            100% { box-shadow: 0 0 10px #00f6ff, 0 0 20px #00f6ff, 0 0 30px #00f6ff; }
+        }
+
+        /* Botón PayPal */
+        .btn-paypal {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: #0a0a0a;
+            background: #FFC439; /* amarillo PayPal */
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 10px #FFC439, 0 0 20px #FFC439, 0 0 30px #FFC439;
+            animation: glow-paypal 1.5s infinite alternate;
+            transition: transform 0.3s;
+        }
+
+        .btn-paypal:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes glow-paypal {
+            0% { box-shadow: 0 0 10px #FFC439, 0 0 20px #FFC439, 0 0 30px #FFC439; }
+            50% { box-shadow: 0 0 20px #FFC439, 0 0 30px #FFC439, 0 0 40px #FFC439; }
+            100% { box-shadow: 0 0 10px #FFC439, 0 0 20px #FFC439, 0 0 30px #FFC439; }
         }
     </style>
 </head>
 <body>
     <canvas id="bgCanvas"></canvas>
-    <h1>Claudio Cipolla — Diseñador Digital</h1>
-    <p>Servicios profesionales de diseño digital para redes sociales y materiales de cursos online.<br>
-       Selecciona el monto que desees pagar por tu proyecto a través de PayPal.</p>
-    <a class="paypal-button" href="https://www.paypal.me/carielnunez" target="_blank">
-        <i class="fa-brands fa-paypal"></i> Pagar con PayPal
-    </a>
 
-    <script>
-        const canvas = document.getElementById('bgCanvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+    <h1>Claudio Cipolla - Diseñador Digital</h1>
 
-        const particles = [];
-        const particleCount = 100;
+    <!-- Sección de servicios con descripción y botones -->
+    <div class="servicios">
+        <p>Ofrezco servicios de <strong>diseño gráfico profesional para redes sociales</strong>, adaptado a tus necesidades. 
+        Creación de banners, publicaciones, contenido visual atractivo y personalizado que ayuda a tu marca a destacarse. 
+        Cada diseño es único y optimizado para mejorar el impacto visual y la interacción con tus seguidores.</p>
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.radius = Math.random() * 2 + 1;
-                this.speedX = (Math.random() - 0.5) * 0.5;
-                this.speedY = (Math.random() - 0.5) * 0.5;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = '#00f6ff';
-                ctx.fill();
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if(this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                if(this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-                this.draw();
-            }
-        }
+        <a href="https://articulo.mercadolibre.com.ve/MLV-934270092-diseno-grafico-para-redes-sociales-_JM" 
+           target="_blank" class="btn-servicio">Ver Servicio</a>
 
-        for(let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
+        <a href="https://www.paypal.com/paypalme/dinasantise" 
+           target="_blank" class="btn-paypal">Pagar con PayPal</a>
+    </div>
 
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => p.update());
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-    </script>
+    <!-- Footer flotante con contacto -->
+    <div class="footer-contact">
+        <p>Correo: <a href="mailto:ccipolla@hotmail.com">ccipolla@hotmail.com</a></p>
+        <p>Tel: <a href="tel:+17863955490">786-395-5490</a></p>
+    </div>
 </body>
 </html>
